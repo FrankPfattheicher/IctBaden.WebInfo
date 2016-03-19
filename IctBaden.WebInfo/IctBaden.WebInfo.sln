@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.WebInfo", "IctBaden.WebInfo\IctBaden.WebInfo.csproj", "{BDA8B24B-B679-4D88-A6F7-3C87C6189CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.WebInfo.Test", "IctBaden.WebInfo.Test\IctBaden.WebInfo.Test.csproj", "{B4344E83-DAD1-4480-9CE4-A80A28327BB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA8B24B-B679-4D88-A6F7-3C87C6189CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA8B24B-B679-4D88-A6F7-3C87C6189CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA8B24B-B679-4D88-A6F7-3C87C6189CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA8B24B-B679-4D88-A6F7-3C87C6189CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4344E83-DAD1-4480-9CE4-A80A28327BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4344E83-DAD1-4480-9CE4-A80A28327BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4344E83-DAD1-4480-9CE4-A80A28327BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4344E83-DAD1-4480-9CE4-A80A28327BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
