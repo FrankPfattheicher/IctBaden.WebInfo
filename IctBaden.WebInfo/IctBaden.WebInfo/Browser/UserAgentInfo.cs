@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace IctBaden.WebInfo.Browser
 {
@@ -7,7 +6,7 @@ namespace IctBaden.WebInfo.Browser
     {
         public string Get(string key)
         {
-            return ContainsKey(key) ? this[key] : String.Empty;
+            return ContainsKey(key) ? this[key] : string.Empty;
         }
 
         public string Platform => Get("Platform");

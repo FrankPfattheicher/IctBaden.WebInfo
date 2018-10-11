@@ -8,25 +8,25 @@ namespace IctBaden.WebInfo.Browser
 {
     public class UserAgent
     {
-        private static IniFile browscap;
+        private static IniFile _browscap;
 
         public static UserAgentInfo Parse(string userAgentString)
         {
-            if (browscap == null)
+            if (_browscap == null)
             {
                 var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? ".";
-                browscap = IniFile.FromFile(Path.Combine(path, "browscap.ini"));
+                _browscap = IniFile.FromFile(Path.Combine(path, "browscap.ini"));
             }
-            if (browscap == null)
+            if (_browscap == null)
             {
-                browscap = IniFile.FromResource(Assembly.GetExecutingAssembly(), "lite_asp_browscap.ini");
+                _browscap = IniFile.FromResource(Assembly.GetExecutingAssembly(), "lite_asp_browscap.ini");
             }
 
             var info = new UserAgentInfo();
             var match = FindMatch(userAgentString);
             do
             {
-                var entries = browscap[match].ToArray();
+                var entries = _browscap[match].ToArray();
                 match = "";
                 foreach (var entry in entries)
                 {
@@ -46,25 +46,25 @@ namespace IctBaden.WebInfo.Browser
 
         private static string FindMatch(string agent)
         {
-            foreach (var section in browscap.Keys)
+            foreach (var section in _browscap.Keys)
             {
                 if ((section.IndexOfAny(new[] { '*', '?' }) == -1) && (section == agent))
                 {
                     // prevent matching of group entries
-                    if ((browscap[section].ContainsKey("Parent") ? browscap[section]["Parent"] : string.Empty) != "DefaultProperties")
+                    if ((_browscap[section].ContainsKey("Parent") ? _browscap[section]["Parent"] : string.Empty) != "DefaultProperties")
                     {
                         return section;
                     }
                 }
             }
-            foreach (var section in browscap.Keys)
+            foreach (var section in _browscap.Keys)
             {
                 try
                 {
                     if (section.IndexOfAny(new[] { '*', '?' }) > -1)
                     {
                         var regex = Regex.Escape(section).Replace(@"\*", ".*").Replace(@"\?", ".");
-                        if (Regex.IsMatch(agent, "^" + regex + "$"))
+                        if (Regex.IsMatch(agent, "^" + regex + "$", RegexOptions.IgnoreCase))
                         {
                             return section;
                         }
